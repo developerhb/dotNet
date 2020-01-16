@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 namespace Practical3
 {
-    class RetailSalesman : Salesman
+    class RetailSalesman : ISalesman
     {
-        public RetailSalesman(String firstName, String lastName) : base(firstName,lastName)
+        private String firstName;
+        private String lastName;
+        public RetailSalesman(String firstName, String lastName)
         {
-            
+            this.firstName = firstName;
+            this.lastName = lastName;
         }
-
-        public override void sell()
+        public String fullName
         {
-            Console.WriteLine("Hello. My name is " + firstName + " " + lastName + ". I recommend you to by this retail item.");
+            get { return firstName + " " + lastName;  }
+        }
+        public void sell()
+        {
+            Console.WriteLine("Hello. My name is " + fullName + ". I recommend you to by this retail item.");
         }
     }
 }
